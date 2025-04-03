@@ -2,7 +2,7 @@
 
 A beginner-friendly tutorial on Machine Learning algorithms with raw python implemetation
 
-Project Structure:
+Project Structure:<br>
 **Separate directories for each algorithm<br>
 **Each directory has files of form "algorithm_name.py" and "algorithm_name_usingsk.py"<br>
 **"algorithm_name.py" contains raw implementation of the algo using only NumPy and Pandas<br>
