@@ -23,12 +23,19 @@ def train_test_split(data, test_size=0.2, shuffle=True):
 
 X_train, X_test, y_train, y_test = train_test_split(df, test_size=0.2, shuffle=True)
 
+
+def cost_function(X, y, m, c):
+    n = X.shape[0]
+    y_pred = m * X + c
+    cost = (1 / n) * np.sum((y - y_pred) ** 2)
+    return cost
+
 # Use the property of gradients that negaitive of gradient always points in the direction of steepest decrease
 def gradient_descent(X_train, y_train, learning_rate, m, c):
     n = X_train.shape[0]
     derivative_wrt_m = 0
     derivative_wrt_c = 0
-
+ 
     for i in range(n):
         x = X_train[i]
         y = y_train[i]
@@ -78,13 +85,22 @@ def main():
     epoch = 10000
     learning_rate = 0.0001
     m, c = 0, 0
-
+    cost_history = []
     for _ in range(epoch):
         m, c = gradient_descent(X_train, y_train, learning_rate, m, c)
+        cost = cost_function(X_train, y_train, m, c)
+        cost_history.append(cost)
+
 
     print(f"Final Parameters: m = {m}    c = {c}")
     print("R² Score:", r2_score(X_test, y_test, m, c))
 
     plot(df, m, c)
+
+    plt.plot(range(len(cost_history)), cost_history)
+    plt.xlabel("Epochs")
+    plt.ylabel("Cost (MSE)")
+    plt.title("Cost Function Over Epochs")
+    plt.show()
 
 main()

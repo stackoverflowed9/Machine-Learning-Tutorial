@@ -1,0 +1,25 @@
+** Importance of choosing an appropriate learning rate **
+1. If the learning rate is too high, the model jumps too far
+   and may not converge
+2. If the learning rate is too low, the model takes tiny steps
+   and will take too many epochs to learn
+
+
+** How to choose the appropriate learning rate **
+1. Start with a value between 0.01-0.001 (Recommended for most cases)
+2. Make use of the plot of cost function vs epochs
+3. If the curve is diverging in nature, reduce the learning rate
+4. If the loss decreases too slowly, increase the learning rate
+
+** Importance of choosing an appropriate epoch **
+1. If the epochs are too low, the model stops early and will not
+   learn
+2. If the epochs are too high, the model will work very slowly
+
+** How to set an ideal epoch **
+1. Start with a value around 500-5000 (Works for most cases)
+2. Make use of the plot of cost function vs epochs
+3. If the cost function attains a stable value early on, no need
+   to increase the epochs
+4. If the cost function is still decreasing continually, increase
+   the epochs so that model can complete learning
